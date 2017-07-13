@@ -1,0 +1,45 @@
+name:                list-fusion
+version:             0.1.0.0
+synopsis:            Example code for list fusion
+description:         Example code for the list fusion Haskell meetup in Hamburg
+license:             BSD3
+license-file:        LICENSE
+author:              Jonas Scholl
+maintainer:          anselm.scholl@tu-harburg.de
+copyright:           (c) 2017 Anselm Jonas Scholl
+category:            Example
+build-type:          Simple
+extra-source-files:  ChangeLog.md
+cabal-version:       >=1.10
+
+library
+  exposed-modules:
+    ListFusion.Naive
+    ListFusion.LikeGHC
+    ListFusion.LikeGHCWithRules
+    ListFusion.GHC
+  build-depends:
+    base >= 4.9 && < 5,
+    ghc-prim >= 0.4.0.0,
+    bytestring,
+    text,
+    vector
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+  ghc-options:         -Wall -fwarn-tabs -fwarn-incomplete-record-updates -fwarn-incomplete-uni-patterns
+
+benchmark list-fusion-bench
+  type:                exitcode-stdio-1.0
+  main-is:             Bench.hs
+  hs-source-dirs:      bench
+  default-language:    Haskell2010
+  ghc-options:         -Wall -fwarn-tabs -fwarn-incomplete-record-updates -fwarn-incomplete-uni-patterns
+  -- ghc-options:         -ddump-rule-firings
+  ghc-options:         -ddump-simpl -dsuppress-idinfo -dsuppress-coercions -dsuppress-type-applications -dsuppress-uniques -dsuppress-module-prefixes
+  build-depends:
+    base >= 4.8 && < 5,
+    list-fusion,
+    criterion,
+    bytestring,
+    text,
+    vector
