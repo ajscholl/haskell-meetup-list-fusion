@@ -35,7 +35,7 @@ benchmark list-fusion-bench
   default-language:    Haskell2010
   ghc-options:         -Wall -fwarn-tabs -fwarn-incomplete-record-updates -fwarn-incomplete-uni-patterns
   -- ghc-options:         -ddump-rule-firings
-  ghc-options:         -ddump-simpl -dsuppress-idinfo -dsuppress-coercions -dsuppress-type-applications -dsuppress-uniques -dsuppress-module-prefixes
+  -- ghc-options:         -ddump-simpl -dsuppress-idinfo -dsuppress-coercions -dsuppress-type-applications -dsuppress-uniques -dsuppress-module-prefixes
   build-depends:
     base >= 4.8 && < 5,
     list-fusion,
